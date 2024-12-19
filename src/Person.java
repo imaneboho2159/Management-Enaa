@@ -1,25 +1,22 @@
 
-abstract class Person {
+          abstract class Person {
 
          private int id;
          private String firstName;
          private String lastName;
-         private int age;
          private String email;
          private String phoneNumber;
 
-          public Person(int id, String firstName, String lastName, int age, String email, String phoneNumber) {
+          public Person(int id, String firstName, String lastName, String email, String phoneNumber) {
               this.id = id;
               this.firstName = firstName;
               this.lastName = lastName;
-              this.age = age;
               this.email = email;
               this.phoneNumber = phoneNumber;
 
           }
 
-    public Person() {
-    }
+
 
     public int getId() {
              return id;
@@ -27,10 +24,12 @@ abstract class Person {
 
          public void setId(int id) {
              this.id = id;
+
          }
 
          public String getFirstName() {
              return firstName;
+
          }
 
          public void setFirstName(String firstName) {
@@ -45,13 +44,6 @@ abstract class Person {
              this.lastName = lastName;
          }
 
-         public int getAge() {
-             return age;
-         }
-
-         public void setAge(int age) {
-             this.age = age;
-         }
 
          public String getEmail() {
              return email;
@@ -68,10 +60,6 @@ abstract class Person {
          public void setPhoneNumber(String phoneNumber) {
              this.phoneNumber = phoneNumber;
          }
-          abstract void add();
-          abstract void remove();
-           abstract void display();
-          abstract void update();
 
 
      }

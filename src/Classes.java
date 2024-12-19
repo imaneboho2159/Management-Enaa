@@ -5,29 +5,12 @@ public class Classes extends  Person{
     private String  name;
     private trainer trainer;
     private ArrayList<Student> students;
-    private ArrayList<Double> nots;
 
-
-
-
-
-    @Override
-    void add() {
-
+    public Classes(int id, String firstName, String lastName, String email, String phoneNumber) {
+        super(id, firstName, lastName, email, phoneNumber);
     }
 
-    @Override
-    void remove() {
 
-    }
 
-    @Override
-    void display() {
 
-    }
 
-    @Override
-    void update() {
-
-    }
-}

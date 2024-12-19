@@ -1,7 +1,7 @@
 
 
 public class trainer extends Person {
-    private int trainer;
+    private int trainerName;
     private Double salary;
     private Classes Tclass;
 
