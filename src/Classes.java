@@ -1,15 +1,48 @@
-import java.util.ArrayList;
-import java.util.Observable;
+ import java.util.ArrayList;
 
-public class Classes extends  Person{
-    private String  name;
-    private trainer trainer;
-    private ArrayList<Student> students;
+public class Classes{
+    private int id;
+    private String className;
+    private Trainer trainer;
+     ArrayList<Student> student = new ArrayList<>();
 
-    public Classes(int id, String firstName, String lastName, String email, String phoneNumber) {
-        super(id, firstName, lastName, email, phoneNumber);
+    public Classes(int id, String className) {
+        this.id = id;
+        this.className = className;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public Trainer getTrainer() {
+        return trainer;
+    }
+
+    public void setTrainer(Trainer trainer) {
+        this.trainer = trainer;
+    }
+
+    public ArrayList<Student> getStudent() {
+        return student;
+    }
+
+    public void setStudent(ArrayList<Student> student) {
+        this.student = student;
+    }
+}
 
 
 

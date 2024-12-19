@@ -1,37 +1,21 @@
 
+class Trainer extends Person {
+    private String Speciality;
+    private double salary;
+    private Classes clase;
 
-public class trainer extends Person {
-    private int trainerName;
-    private Double salary;
-    private Classes Tclass;
-
-
-    public trainer(int id, String firstName, String lastName, int age, String email, String phoneNumber, int trainer, Double salary,Classes Tclass) {
-        super(id, firstName, lastName, age, email, phoneNumber);
-        this.trainer = trainer;
+    public Trainer(int id, String name, String email, String phoneNumber, String speciality, double salary) {
+        super(id, name, email, phoneNumber);
+        this.Speciality = speciality;
         this.salary = salary;
-        this.Tclass = Tclass;
-
     }
 
-    @Override
-    void add() {
 
+    public Classes getClase() {
+        return clase;
     }
 
-    @Override
-    void remove() {
-
-    }
-
-    @Override
-    void display() {
-
-    }
-
-    @Override
-    void update() {
-
+    public void setClase(Classes clase) {
+        this.clase = clase;
     }
 }
-
