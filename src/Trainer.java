@@ -1,23 +1,15 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Trainer extends Person {
+public class Trainer extends Person {
     private String Speciality;
-    private double salary;
-    private Classes clase;
-    Trainer trainer= new Trainer();
-    private ArrayList<Trainer>trainers= new ArrayList<>();
-
-    public Trainer(int id, String name, String email, String phoneNumber) {
-        super(id, name, email, phoneNumber);
-        this.Speciality = Speciality;
-        this.salary = 0;
-    }
-
-
+    private Double Salary;
+    ArrayList<Trainer> trainer = new ArrayList<>();
 
     public Trainer(int id, String name, String email, String phoneNumber, String speciality, Double salary) {
         super(id, name, email, phoneNumber);
+        Speciality = speciality;
+        Salary = salary;
     }
 
     public Trainer() {
@@ -29,104 +21,118 @@ class Trainer extends Person {
         return Speciality;
     }
 
+    public Double getSalary() {
+        return Salary;
+    }
+
     public void setSpeciality(String speciality) {
         Speciality = speciality;
     }
 
-    public double getSalary() {
-        return salary;
+    public void setSalary(Double salary) {
+        Salary = salary;
     }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-
-    public Trainer getTrainer() {
-        return trainer;
-    }
-
-    public void setTrainer(Trainer trainer) {
+    public void setTrainer(ArrayList<Trainer> trainer) {
         this.trainer = trainer;
     }
 
-    public Classes getClase() {
-        return clase;
+    public ArrayList<Trainer> getTrainer() {
+        return trainer;
     }
 
-    public void setClase(Classes clase) {
-        this.clase = clase;
-    }
-    public void addTrainer() {
+    public void addTrainer(){
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter trainer ID: ");
+        System.out.print("Enter Trainer ID: ");
         this.setId(scanner.nextInt());
-        System.out.print("Enter trainer  name: ");
+        scanner.nextLine();
+        System.out.print("Enter Trainer name: ");
         this.setName(scanner.nextLine());
-        System.out.print("Enter trainer email: ");
+        System.out.print("Enter Trainer email: ");
         this.setEmail(scanner.nextLine());
-        System.out.print("Enter trainer phone number: ");
+        System.out.print("Enter Trainer phone number: ");
         this.setPhoneNumber(scanner.nextLine());
-        System.out.print("Enter trainer Speciality: ");
+        System.out.print("Enter Trainer Speciality :");
         this.setSpeciality(scanner.nextLine());
-        System.out.print("Enter trainer salary: ");
+        System.out.print("Enter Trainer Salary :");
         this.setSalary(scanner.nextDouble());
-        Trainer trainer = new Trainer(this.getId(), this.getName(), this.getEmail(), this.getPhoneNumber(),this.getSpeciality(),this.getSalary());
+        scanner.nextLine();
+        Trainer trainers = new Trainer(this.getId(), this.getName(), this.getEmail(), this.getPhoneNumber(),this.getSpeciality(),this.getSalary());
+        trainer.add(trainers);
         System.out.print(" Trainer added  ");
+
     }
-    public void displayTrainer() {
-        if (trainers.isEmpty()){
-            System.out.println("No Trainer found");
+    public void displayTrainer(){
+        if (trainer.isEmpty()){
+            System.out.println("No students found");
             return;
         }
-        System.out.println("\n List of trainers : ");
-        for (int i = 0; i < trainers.size(); i++){
+        System.out.println("\n List of students: ");
+        for (int i = 0; i < trainer.size(); i++){
             System.out.println("-----------------------------------");
-            System.out.println("Trainer ID: " + trainers.get(i).getId());
-            System.out.println("Trainer Name: " + trainers.get(i).getName());
-            System.out.println("Trainer Email: " + trainers.get(i).getEmail());
-            System.out.println("Trainer Phone Number: " + trainers.get(i).getPhoneNumber());
-            System.out.println("Trainer Speciality: " + trainers.get(i).getSpeciality());
-            System.out.println("Trainer Salary: " + trainers.get(i).getSalary());
+            System.out.println("Student ID: " + trainer.get(i).getId());
+            System.out.println("Student Name: " + trainer.get(i).getName());
+            System.out.println("Student Email: " + trainer.get(i).getEmail());
+            System.out.println("Student Phone Number: " + trainer.get(i).getPhoneNumber());
 
         }
-
     }
 
-    public void updateTrainer(){
+
+    public void updateTrainer() {
         Scanner scanner = new Scanner(System.in);
-        if(trainers.isEmpty()){
-            System.out.print("no trainer found ! ");
+
+        if(trainer.isEmpty()) {
+            System.out.println("No trainer found!");
             return;
         }
 
-        for(int i=0; i< trainers.size(); i++){
-            if(trainer.getId() == this.getId()){
-
-                System.out.print("\n Trainer name: " + trainers.get(i).getName() );
-                System.out.print("\n Trainer email: " + trainers.get(i).getEmail() );
-                System.out.print("\n Trainer phone number: " + trainers.get(i).getPhoneNumber() );
-                System.out.print("\n Trainer Speciality: " + trainers.get(i).getSpeciality() );
-                System.out.print("\n Trainer Salary: " + trainers.get(i).getSalary());
-                System.out.print("\n Trainer is updated " );
-                return;
-            }
-
-        }
-        System.out.print("\n Trainer not found ! ");
-    }
-    public void deleteTrainer (){
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter trainer ID to delete: ");
+        System.out.print("Enter trainer ID for updating: ");
         this.setId(scanner.nextInt());
-        for(int i=0; i< trainers.size(); i++){
-            if(trainers.get(i).getId() == this.getId()){
-                trainers.remove(i);
-                System.out.println("Trainer deleted  ");
+        scanner.nextLine();
+
+        for(int i = 0; i < trainer.size(); i++) {
+            if(trainer.get(i).getId() == this.getId()) {
+                System.out.print("Enter new Trainer name: ");
+                String newName = scanner.nextLine();
+
+                System.out.print("Enter new Trainer email: ");
+                String newEmail = scanner.nextLine();
+
+                System.out.print("Enter new phone number: ");
+                String newPhoneNumber = scanner.nextLine();
+
+                System.out.print("Enter new Salary :");
+                Double newSalary =scanner.nextDouble();
+
+
+
+                trainer.get(i).setName(newName);
+                trainer.get(i).setEmail(newEmail);
+                trainer.get(i).setPhoneNumber(newPhoneNumber);
+                trainer.get(i).setSalary(newSalary);
+
+                System.out.println("Trainer information has been updated successfully!");
+                return;
+            }
+        }
+
+        System.out.println("Trainer not found!");
+    }
+    public void deleteTrainer(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter student ID to delete: ");
+        this.setId(scanner.nextInt());
+        for(int i=0; i< trainer.size(); i++){
+            if(trainer.get(i).getId() == this.getId()){
+                trainer.remove(i);
+                System.out.println("Student deleted  ");
                 return;
 
             }
         }
-        System.out.print("\n Trainer not found ! ");
+        System.out.print("\n Student not found ! ");
     }
+
 
 }
